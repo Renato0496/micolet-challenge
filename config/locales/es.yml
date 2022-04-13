@@ -1,0 +1,13 @@
+es:
+  hello: "Hola mundo!"
+  welcome: "Bienvenido! Pronto habilitaremos nuestro sitio web para este país."
+  suscribe: "Suscribete para recibir nuestro boletín informativo."
+  preference: "Preferencias"
+  button: "Suscríbeme!"
+
+  global:
+    forms:
+      messages:
+        errors:
+          one: "Un error no permite guardar la información"
+          other: "%{count} errores no permiten gruadar la información"
