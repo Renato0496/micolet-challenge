@@ -1,5 +1,6 @@
 es:
   hello: "Hola mundo!"
+  logo: "Moda casi nueva con garantía"
   welcome: "Bienvenido! Pronto habilitaremos nuestro sitio web para este país."
   suscribe: "Suscribete para recibir nuestro boletín informativo."
   preference: "Preferencias"
@@ -11,4 +12,3 @@ es:
         errors:
           one: "Un error no permite guardar la información"
           other: "%{count} errores no permiten gruadar la información"
-          

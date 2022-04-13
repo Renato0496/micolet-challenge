@@ -4,15 +4,12 @@
     src="https://d30o7qbghf97ws.cloudfront.net/micolet-logo.svg"
     alt="logo-micolet"
   />
-  <p class="logo-subtitle">Almost new fashion with guarantee</p>
+  <p class="logo-subtitle"><%= t 'logo'%></p>
   <div class="titles">
         <h2><%= t 'welcome'%> </h2>
         <h3><%= t 'suscribe'%> </h3>
   </div>
   <%= render "form", user: @user %>
-  <br>
-  <p class="logo-subtitle">Almost new fashion with guarantee</p>
-  <div>
-    <%= link_to "Back to users", users_path %>
-  </div>
+  
+  
 </div>

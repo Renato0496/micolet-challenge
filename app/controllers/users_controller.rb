@@ -19,17 +19,16 @@ class UsersController < ApplicationController
   def edit; end
 
   # POST /users or /users.json
-  def create
-    pp user_params
-    @user = User.new(user_params)
-    ids = params[:preferences_ids]
+  def create    
+    @user = User.new(user_params)    
+    ids = user_params[:preference_ids]
     
     respond_to do |format|
       if ids
         ids.each { |id| @user.preferences.push(Preference.find(id.to_i)) }      
-      end
+      end      
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to user_url(@user), notice: "User was successfully created." }      
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -65,6 +64,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, preference_ids: [])
   end
+
 end
