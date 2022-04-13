@@ -29,6 +29,7 @@ class UsersController < ApplicationController
         ids.each { |id| @user.preferences.push(Preference.find(id.to_i)) }      
       end
       if @user.save
+        UserMailer.with(user: @user).welcome_email.deliver_later
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
