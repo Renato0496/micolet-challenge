@@ -11,3 +11,4 @@ es:
         errors:
           one: "Un error no permite guardar la información"
           other: "%{count} errores no permiten gruadar la información"
+          
