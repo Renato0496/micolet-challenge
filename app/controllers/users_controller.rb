@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy ]
 
   # GET /users or /users.json
   def index
@@ -12,8 +12,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @preferences = Preference.all
-    @preferences_choiced = []
+    @preferences = Preference.all    
   end
 
   # GET /users/1/edit
@@ -21,10 +20,14 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    pp user_params
     @user = User.new(user_params)
-    # @preferences = Preference.all
-    p params
+    ids = params[:preferences_ids]
+    
     respond_to do |format|
+      if ids
+        ids.each { |id| @user.preferences.push(Preference.find(id.to_i)) }      
+      end
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
       else
@@ -62,6 +65,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email, :preferences)
+    params.require(:user).permit(:email)
   end
 end

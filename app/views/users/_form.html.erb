@@ -14,14 +14,17 @@
   <div>
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
+    
   </div>
 
   <div>
-    <% @preferences.each do |preference| %>
-      <%= check_box_tag preference.id, preference.title %>
+    <% Preference.all.each do |preference| %>
+      <%= check_box_tag "preferences_ids[]", preference.id %>
       <%= label_tag preference.id, preference.title %>
     <% end %>
   </div>
+
+
 
   <div>
     <%= form.submit %>
