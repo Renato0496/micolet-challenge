@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  scope "(:locale)", locale: /en|es|fr/ do
+    resources :users, only: [:new, :show]
+    root 'welcome#index'
+  end
 end

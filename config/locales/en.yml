@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  logo: "Almost new fashion with guarantee"
+  welcome: "Welcome! Soon we will launch our site in this country."
+  suscribe: "Suscribe to receive our newsletter."
+  preference: "Preferences"
+  button: "Subscribe me!"
+
+  global:
+    forms:
+      messages:
+        errors:
+          one: "One error prohibited this feedback from being saved"
+          other: "%{count} errors prohibited this feedback from being saved"

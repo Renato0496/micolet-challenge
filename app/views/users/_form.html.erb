@@ -1,7 +1,7 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user, html: {class: 'form'}) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= t 'global.forms.messages.errors', count:user.errors.count %> :</h2>
 
       <ul>
         <% user.errors.each do |error| %>
@@ -11,22 +11,18 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="email">
     <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-    
+    <%= form.text_field :email , class: "email-input" %>  
   </div>
-
-  <div>
-    <% Preference.all.each do |preference| %>
-      <%= check_box_tag "preferences_ids[]", preference.id %>
-      <%= label_tag preference.id, preference.title %>
-    <% end %>
-  </div>
-
-
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="preferences">
+    <p class="preferences-title"><%= t 'preference'%></p>    
+      <% Preference.all.each do |preference| %>   
+        <div class="checkbox">
+          <%= check_box_tag "user[preference_ids][]", preference.id,nil , id: "user_preference_ids_#{preference.id}" %>
+          <%= label_tag "user[preference_ids][#{preference.id}]", preference.title %>
+        </div>  
+      <% end %>      
+  </div>  
+  <%= form.submit t('button'), class: 'button-submit'%>
 <% end %>
