@@ -36,6 +36,7 @@ en:
   suscribe: "Suscribe to receive our newsletter."
   preference: "Preferences"
   button: "Subscribe me!"
+  greetings: "Thanks for subscribing to our newsletter, an email has been sent to your inbox confirming your subscription."
 
   global:
     forms:

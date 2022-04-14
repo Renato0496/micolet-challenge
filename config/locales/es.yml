@@ -5,6 +5,9 @@ es:
   suscribe: "Suscribete para recibir nuestro boletín informativo."
   preference: "Preferencias"
   button: "Suscríbeme!"
+  greetings: "Gracias por suscribirte a nuestro boletín informativo, se le envió un correo
+               electrónico a su bandeja de entrada confirmando su suscripción."
+
 
   global:
     forms:
