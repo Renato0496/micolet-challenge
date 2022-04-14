@@ -14,7 +14,8 @@ class User < ApplicationRecord
   private
 
   def request_score
-    uri = URI("https://emailvalidation.abstractapi.com/v1/?api_key=73f7dfb5a29a4f88a381e8bcbccb12ff&email=#{self.email}")
+    apikey = "b7362a85a6b64fec8b4273a9810f2d47"
+    uri = URI("https://emailvalidation.abstractapi.com/v1/?api_key=#{apikey}&email=#{self.email}")
 
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
