@@ -1,0 +1,7 @@
+<h1><%= t 'welcome'%> </h2>
+<h2>Estas suscrito a:</h3>
+<ul>
+  <% @user.preferences.each do |preference| %>   
+    <li><%= preference.title %></li>
+  <% end %>  
+</ul>

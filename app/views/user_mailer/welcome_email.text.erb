@@ -1,0 +1,7 @@
+<%= t 'welcome'%>
+===============================================
+
+Estas suscrito a:
+<% @user.preferences.each do |preference| %>   
+  <%= preference.title %>
+<% end %>  
