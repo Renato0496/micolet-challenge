@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy ]
+  before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
   def index
@@ -20,41 +20,23 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create    
-    @user = User.new(user_params)    
-    ids = user_params[:preference_ids]
+    @user = User.new()
+    @user.email = user_params[:email] 
+    @ids = user_params[:preference_ids]
     
     respond_to do |format|
-      if ids
-        ids.each { |id| @user.preferences.push(Preference.find(id.to_i)) }      
+      if @ids
+        @ids.each { |id| @user.preferences.push(Preference.find(id.to_i)) }      
       end      
       if @user.save
         UserMailer.with(user: @user).welcome_email.deliver_later
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to success_path }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /users/1 or /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /users/1 or /users/1.json
-  def destroy
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-    end
-  end
 
   private
 
