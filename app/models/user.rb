@@ -14,7 +14,7 @@ class User < ApplicationRecord
   private
 
   def request_score
-    apikey = "b7362a85a6b64fec8b4273a9810f2d47"
+    apikey = "73f7dfb5a29a4f88a381e8bcbccb12ff"
     uri = URI("https://emailvalidation.abstractapi.com/v1/?api_key=#{apikey}&email=#{self.email}")
 
     http = Net::HTTP.new(uri.host, uri.port)
@@ -32,6 +32,6 @@ class User < ApplicationRecord
 
   def validate_email_score
     score = request_score
-    errors.add(:email, "invalid...") if score < 0.7
+    errors.add(:email, "unscored") if score < 0.7
   end
 end
