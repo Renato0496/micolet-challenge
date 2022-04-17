@@ -13,6 +13,9 @@ bundle install
 ## Usage
 
 ```rails
+# create the database
+rails db:create
+rails db:seed
 # open the rails server
 rails server
 ```
